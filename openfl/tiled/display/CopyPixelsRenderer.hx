@@ -43,7 +43,7 @@ class CopyPixelsRenderer implements Renderer {
 						var rect:Rectangle = tileset.getTileRectByGID(nextGID);
 
 						if(map.orientation == TiledMapOrientation.Isometric) {
-							point.x += map.totalWidth/2;
+							point.x += map.totalWidth * 0.5;
 						}
 
 						// copy pixels
@@ -58,7 +58,7 @@ class CopyPixelsRenderer implements Renderer {
 		var bitmap = new Bitmap(bitmapData);
 
 		if(map.orientation == TiledMapOrientation.Isometric) {
-			bitmap.x -= map.totalWidth/2;
+			bitmap.x -= map.totalWidth * 0.5;
 		}
 
 		on.addChild(bitmap);

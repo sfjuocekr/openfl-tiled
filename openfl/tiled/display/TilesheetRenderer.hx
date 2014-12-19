@@ -132,7 +132,7 @@ class TilesheetRenderer implements Renderer {
 		if(map.orientation == TiledMapOrientation.Orthogonal) {
 			sprite.graphics.drawRect(0, 0, map.totalWidth, map.totalHeight);
 		} else {
-			sprite.graphics.drawRect(-map.totalWidth/2, 0, map.totalWidth, map.totalHeight);
+			sprite.graphics.drawRect(-map.totalWidth * 0.5, 0, map.totalWidth, map.totalHeight);
 		}
 
 		sprite.graphics.endFill();
