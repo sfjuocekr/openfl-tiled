@@ -21,9 +21,8 @@
 // THE SOFTWARE.
 package openfl.tiled;
 
-import haxe.io.Path;
-
 import flash.display.BitmapData;
+import haxe.io.Path;
 
 class Helper {
 

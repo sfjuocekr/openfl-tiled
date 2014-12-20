@@ -25,11 +25,8 @@
 // Link to related file: <https://github.com/HaxePunk/tiled/blob/master/com/haxepunk/tmx/TmxLayer.hx>
 package openfl.tiled;
 
-import flash.geom.Rectangle;
 import flash.utils.ByteArray;
 import flash.utils.Endian;
-
-import openfl.display.Tilesheet;
 
 class Layer {
 

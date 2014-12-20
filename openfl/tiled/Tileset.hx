@@ -22,12 +22,8 @@
 package openfl.tiled;
 
 import flash.geom.Point;
-import flash.display.BitmapData;
 import flash.geom.Rectangle;
-
 import haxe.io.Path;
-
-import openfl.display.Tilesheet;
 
 class Tileset {
 

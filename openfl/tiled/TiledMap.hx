@@ -21,23 +21,15 @@
 // THE SOFTWARE.
 package openfl.tiled;
 
-import flash.geom.Rectangle;
-import flash.geom.Point;
 import flash.display.Sprite;
-import flash.display.Bitmap;
-import flash.display.BitmapData;
 import flash.events.Event;
-
 import haxe.io.Path;
-
-import openfl.display.Tilesheet;
-
+import openfl.tiled.display.CopyPixelsRenderer;
 import openfl.tiled.display.Renderer;
 
 #if !flash
 import openfl.tiled.display.TilesheetRenderer;
 #else
-import openfl.tiled.display.CopyPixelsRenderer;
 #end
 
 /**
