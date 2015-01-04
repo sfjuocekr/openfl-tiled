@@ -43,13 +43,11 @@ class TiledObjectGroup {
 
 	private var objectCounter:Int;
 
-	private function new(name:String, color:String, width:Int, height:Int, properties:Map<String, String>,
+	private function new(name:String, color:String, properties:Map<String, String>,
 			xmlObjects:Array<Xml>) {
 
 		this.name = name;
 		this.color = color;
-		this.width = width;
-		this.height = height;
 		this.properties = properties;
 
 		this.objects = new Array<TiledObject>();
@@ -65,8 +63,6 @@ class TiledObjectGroup {
 	public static function fromGenericXml(xml:Xml):TiledObjectGroup {
 		var name = xml.get("name");
 		var color = xml.get("color");
-		var width = Std.parseInt(xml.get("width"));
-		var height = Std.parseInt(xml.get("height"));
 		var properties:Map<String, String> = new Map<String, String>();
 		var objects:Array<Xml> = new Array<Xml>();
 
@@ -86,7 +82,7 @@ class TiledObjectGroup {
 			}
 		}
 
-		return new TiledObjectGroup(name, color, width, height, properties, objects);
+		return new TiledObjectGroup(name, color, properties, objects);
 	}
 
 	public function hasNext():Bool {

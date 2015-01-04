@@ -68,8 +68,8 @@ class Layer {
 	}
 
 	/**
-	 * This method generates a new Layer from the given Xml code
-	 * @param xml The given xml code
+	 * This method generates a new Layer from the given XML code
+	 * @param XML The given XML code
 	 * @param
 	 * @return A new layer
 	 */
@@ -89,26 +89,34 @@ class Layer {
 			if(Helper.isValidElement(child)) {
 				if (child.nodeName == "data") {
 					var encoding:String = "";
+					
 					if (child.exists("encoding")){
 						encoding = child.get("encoding");
 					}
+					
 					var chunk:String = "";
+					
 					switch(encoding){
 						case "base64":
-							chunk = child.firstChild().nodeValue;
 							var compressed:Bool = false;
+							chunk = child.firstChild().nodeValue;
+							
 							if (child.exists("compression")){
 								switch(child.get("compression")){
 									case "zlib":
 										compressed = true;
+										
 									default:
 										throw "TiledMap: data compression type not supported!";
 								}
 							}
+							
 							tileGIDs = base64ToArray(chunk, width, compressed);
+							
 						case "csv":
 							chunk = child.firstChild().nodeValue;
 							tileGIDs = csvToArray(chunk);
+							
 						default:
 							for (tile in child) {
 								if (Helper.isValidElement(tile)) {
@@ -183,6 +191,7 @@ class Layer {
 				}
 			}
 		}
+		
 		return result;
 	}
 
@@ -198,11 +207,13 @@ class Layer {
 			#if !js
 				data.uncompress();
 			#end
+			
 		data.endian = Endian.LITTLE_ENDIAN;
 
 		while(data.position < data.length){
 			result.push(data.readInt());
 		}
+		
 		return result;
 	}
 
@@ -214,17 +225,19 @@ class Layer {
 		//initialize lookup table
 		var lookup:Array<Int> = new Array<Int>();
 		var c:Int;
+		
 		for (c in 0...BASE64_CHARS.length){
 			lookup[BASE64_CHARS.charCodeAt(c)] = c;
 		}
 
 		var i:Int = 0;
-		var char:String = null;
-		
+
 		while (i < data.length - 3) {
-			char = data.charAt(i);
+			var char:String = data.charAt(i);
+			
 			// Ignore whitespace
-			if (char == " " || char == "\n" || char =='\r'){
+			if (char == " " || char == "\n" || char == "\r") {
+				
 				i++; continue;
 			}
 
@@ -247,6 +260,7 @@ class Layer {
 
 		// Rewind & return decoded data
 		output.position = 0;
+		
 		return output;
 	}
 }

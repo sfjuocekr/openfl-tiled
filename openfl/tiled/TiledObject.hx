@@ -71,8 +71,8 @@ class TiledObject {
 		this.gid = gid;
 		this.name = name;
 		this.type = type;
-		this.x = x;
-		this.y = y;
+		this.x = x + Std.int(width * 0.5);
+		this.y = y - Std.int(height * 0.5);
 		this.width = width;
 		this.height = height;
 		this.polygon = polygon;
